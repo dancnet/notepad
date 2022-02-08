@@ -1,0 +1,19 @@
+{
+  "name": "notepad",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --ignore ./client/ & npm run dev --prefix ./client/",
+    "prod": "node ."
+  },
+  "dependencies": {
+    "better-sqlite3": "^7.5.0",
+    "body-parser": "^1.19.1",
+    "dotenv": "^14.3.2",
+    "express": "^4.17.2",
+    "quill-delta": "^4.2.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}

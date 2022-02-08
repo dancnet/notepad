@@ -1,0 +1,4 @@
+/data/
+/.env
+/client/public/build/
+node_modules/
