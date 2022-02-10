@@ -28,7 +28,8 @@
                 dispatch('newNote', {
                     note: {
                         id: data.lastInsertRowid,
-                        name
+                        name,
+                        share: []
                     },
                     category
                 });
