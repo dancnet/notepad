@@ -15,7 +15,8 @@
 
     // Editor
     import Editor from './Editor.svelte';    
-    let note; // the note that is open in the editor
+    let note = null; // the note that is open in the editor
+    const hideEditor = () => note = null;
 
     // Login
     import Login from './Login.svelte';
@@ -29,7 +30,7 @@
 {#if auth === undefined}
     <Login on:loggedin={loggedin} />
 {:else}
-    <Sidebar {auth} {connections} {sidebarOpen} {notepad} {note} on:loadNote={loadNote} on:readonly={readonlyToggle} />
+    <Sidebar {auth} {connections} {sidebarOpen} {notepad} {note} on:loadNote={loadNote} on:readonly={readonlyToggle} on:hideEditor={hideEditor} />
 
     <main class:sidebar={sidebarOpen}>
         <Topar {auth} {connections} {readonly} on:toggleSidebar={toggleSidebar} on:newCategory={newCategory} on:updateConnections={updateConnections} />

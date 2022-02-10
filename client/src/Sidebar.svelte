@@ -11,6 +11,7 @@
             dispatch('readonly', true)
             auth.conn = connections.find(c => c.id === activeNotepad);
         };
+        dispatch('hideEditor');
         getNotes();
     }
 
@@ -41,6 +42,7 @@
         .then(response => response.json())
         .then(data => {
             let catId = null;
+            notepad = [];
             data.forEach(row => {
                 if(row.categoryId !== catId) {
                     notepad.push({
@@ -93,7 +95,7 @@
                 {#if category.notes.length > 0}
                     <i class="fa {category.open ? 'fa-caret-up' : 'fa-caret-down'}" />
                 {/if}
-                {#if activeNotepad === 1}
+                {#if activeNotepad === '1'}
                     <a href={"#"} on:click|preventDefault={() => alert('Feature not available yet.')} class="w3-right w3-hover-text-purple padding-side"><i class="far fa-edit" /></a>
                     <AddNewNote {auth} {category} on:newNote={newNote} />
                 {/if}
@@ -112,7 +114,7 @@
                                 </span>
                             </span>
                         {/if}
-                        {#if activeNotepad === 1}
+                        {#if activeNotepad === '1'}
                             <EditNote {auth} {connections} note={Note} on:edited={e => noteEdited(e, category.id)} />
                         {/if}
                     </div>

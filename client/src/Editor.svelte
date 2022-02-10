@@ -2,7 +2,7 @@
     let quill, timeout, previousContent, networkActivity = false, failedToSave = false, loading = false;
     
     // When the note variable changes, load new data into the editor.
-    export let auth, note = null, readonly = false;
+    export let auth, note, readonly = false;
     $: {
         if(note !== null) {
             loading = true;
