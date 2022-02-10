@@ -6,11 +6,16 @@
     const loadNote = e => note = e.detail;
     let readonly;
     const readonlyToggle = e => readonly = e.detail;
+    const getNotes = e => notepad = e.detail;
 
     // Topbar
     import Topar from './Topbar.svelte';
     const toggleSidebar = () => sidebarOpen = !sidebarOpen;
-    const newCategory = e => notepad = [...notepad, e.detail];
+    const newCategory = e => {
+        console.log(notepad);
+        notepad = [...notepad, e.detail];
+        console.log(notepad);
+    }
     const updateConnections = e => connections = [...e.detail];
 
     // Editor
@@ -30,7 +35,7 @@
 {#if auth === undefined}
     <Login on:loggedin={loggedin} />
 {:else}
-    <Sidebar {auth} {connections} {sidebarOpen} {notepad} {note} on:loadNote={loadNote} on:readonly={readonlyToggle} on:hideEditor={hideEditor} />
+    <Sidebar {auth} {connections} {sidebarOpen} {notepad} {note} on:loadNote={loadNote} on:readonly={readonlyToggle} on:hideEditor={hideEditor} on:getNotes={getNotes} />
 
     <main class:sidebar={sidebarOpen}>
         <Topar {auth} {connections} {readonly} on:toggleSidebar={toggleSidebar} on:newCategory={newCategory} on:updateConnections={updateConnections} />

@@ -42,10 +42,10 @@
         .then(response => response.json())
         .then(data => {
             let catId = null;
-            notepad = [];
+            let n = [];
             data.forEach(row => {
                 if(row.categoryId !== catId) {
-                    notepad.push({
+                    n.push({
                         id: row.categoryId,
                         name: row.categoryName,
                         open: false,
@@ -54,14 +54,14 @@
                     catId = row.categoryId;
                 }
                 if(row.noteId !== null) {
-                    notepad[notepad.length-1].notes.push({
+                    n[n.length-1].notes.push({
                         id: row.noteId,
                         name: row.noteName,
                         share: row.share === null || row.share === undefined ? [] : row.share.split(',').map(Number)
                     });
                 }
             });
-            notepad = [...notepad];
+            dispatch('getNotes', n);
             loading = false;
         });
     }
