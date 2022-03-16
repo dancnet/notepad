@@ -3,7 +3,7 @@ const Database = require('better-sqlite3');
 const express = require('express');
 const router = express.Router({mergeParams: true});
 const bodyParser = require('body-parser');
-router.use(bodyParser.json());
+router.use(bodyParser.json({limit: '50mb'}));
 
 const Delta = require('quill-delta');
 
