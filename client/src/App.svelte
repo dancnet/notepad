@@ -50,4 +50,10 @@
     main.sidebar {
         margin-left: 300px;
     }
+
+    main {
+        display: flex;
+        flex-flow: column;
+        height: 100vh;
+    }
 </style>

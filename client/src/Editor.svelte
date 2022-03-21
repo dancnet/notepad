@@ -91,7 +91,7 @@
     });
 </script>
 
-<div class="w3-content w3-section w3-border">
+<div class="w3-content w3-section">
     <div id="toolbar" class:w3-hide={readonly}>
         <span class="ql-formats">
             <select class="ql-font"></select>
@@ -158,5 +158,15 @@
         right: 5px;
         z-index: 2;
         font-size: x-large;
+    }
+    .w3-content {
+        flex: 1;
+        display: flex;
+        flex-flow: column;
+        overflow: scroll;
+    }
+    #editor {
+        overflow: scroll;
+        flex: 1;
     }
 </style>
