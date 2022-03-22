@@ -163,10 +163,10 @@
         flex: 1;
         display: flex;
         flex-flow: column;
-        overflow: scroll;
+        overflow: hidden;
     }
     #editor {
-        overflow: scroll;
+        overflow: hidden;
         flex: 1;
     }
 </style>
