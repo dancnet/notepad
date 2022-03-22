@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon --ignore ./client/ & npm run dev --prefix ./client/",
-    "prod": "node ."
+    "prod": "npm run build --prefix ./client/ && node ."
   },
   "dependencies": {
     "better-sqlite3": "^7.5.0",
